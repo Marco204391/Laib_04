@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import it.polito.tdp.lab04.DAO.CorsoDAO;
+import it.polito.tdp.lab04.DAO.StudenteDAO;
 
 public class Model {
 
@@ -17,5 +18,11 @@ public class Model {
 		}
 		return corsi;
 	}
-	
+	public Studente trovaStudente(String matricola){
+		StudenteDAO dao =new StudenteDAO();
+		
+		Studente s=dao.find(matricola);
+		
+		return s;
+	}
 }

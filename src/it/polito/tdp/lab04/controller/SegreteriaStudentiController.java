@@ -9,6 +9,7 @@ import java.util.ResourceBundle;
 
 import it.polito.tdp.lab04.DAO.CorsoDAO;
 import it.polito.tdp.lab04.model.Model;
+import it.polito.tdp.lab04.model.Studente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -78,7 +79,23 @@ public class SegreteriaStudentiController {
 
     @FXML
     void doV(ActionEvent event) {
-
+    	String matricola = txtMatricola.getText();
+    	
+    	if(matricola.length()<6){
+    		txtResult.appendText("Matricola non valida\n");
+    		return;
+    	}
+    	Studente s= model.trovaStudente(matricola);
+    	
+    	if(s==null){
+    		txtResult.appendText("Matricola "+matricola+" non trovata \n");
+    	}else{
+    		txtResult.appendText("Matricola "+matricola+" trovata \n");
+    		
+    		txtNome.setText(s.getNome());
+    		txtCognome.setText(s.getCognome());
+    	}
+    		
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
