@@ -4,6 +4,7 @@
 
 package it.polito.tdp.lab04.controller;
 
+import java.awt.List;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -96,6 +97,13 @@ public class SegreteriaStudentiController {
     		txtCognome.setText(s.getCognome());
     	}
     		
+    }
+    @FXML
+    void docbxCorso(ActionEvent event) {
+    	String nomeCorso=cbxCorso.getValue();
+    	for(Studente s: model.getStudentiCorso(nomeCorso)){
+    		txtResult.appendText(s.toString()+"\n");
+    	}
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete

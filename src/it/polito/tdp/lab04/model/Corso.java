@@ -2,14 +2,14 @@ package it.polito.tdp.lab04.model;
 
 public class Corso {
 	
-	private String condins;
+	private String codins;
 	private int crediti;
 	private String nome;
 	private int pd;
 	
 	
 	public Corso(String condins, int crediti, String nome, int pd) {
-		this.condins = condins;
+		this.codins = condins;
 		this.crediti = crediti;
 		this.nome = nome;
 		this.pd = pd;
@@ -18,13 +18,13 @@ public class Corso {
 	 * @return the condins
 	 */
 	public String getCondins() {
-		return condins;
+		return codins;
 	}
 	/**
 	 * @param condins the condins to set
 	 */
 	public void setCondins(String condins) {
-		this.condins = condins;
+		this.codins = condins;
 	}
 	/**
 	 * @return the crediti
@@ -69,7 +69,7 @@ public class Corso {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((condins == null) ? 0 : condins.hashCode());
+		result = prime * result + ((codins == null) ? 0 : codins.hashCode());
 		result = prime * result + crediti;
 		result = prime * result + ((nome == null) ? 0 : nome.hashCode());
 		result = prime * result + pd;
@@ -87,10 +87,10 @@ public class Corso {
 		if (getClass() != obj.getClass())
 			return false;
 		Corso other = (Corso) obj;
-		if (condins == null) {
-			if (other.condins != null)
+		if (codins == null) {
+			if (other.codins != null)
 				return false;
-		} else if (!condins.equals(other.condins))
+		} else if (!codins.equals(other.codins))
 			return false;
 		if (crediti != other.crediti)
 			return false;
@@ -108,7 +108,7 @@ public class Corso {
 	 */
 	@Override
 	public String toString() {
-		return "Corso [condins=" + condins + ", crediti=" + crediti + ", nome=" + nome + ", pd=" + pd + "]";
+		return "Corso [condins=" + codins + ", crediti=" + crediti + ", nome=" + nome + ", pd=" + pd + "]";
 	}
 	
 	

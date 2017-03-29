@@ -7,16 +7,19 @@ import it.polito.tdp.lab04.DAO.CorsoDAO;
 import it.polito.tdp.lab04.DAO.StudenteDAO;
 
 public class Model {
-
-	List<String> corsi = new LinkedList<String>();
+	
+	List<Corso>corsi = new LinkedList<Corso>();
+	List<String> studenticorso = new LinkedList<String>();
 	
 	public List<String> getCorsi() {
+		List<String>corsiN = new LinkedList<String>();
 		CorsoDAO dao= new CorsoDAO();
-		 corsi.add("");
+		 corsiN.add("");
 		for(Corso s: dao.getTuttiICorsi()){
-			corsi.add(s.getNome());
+			corsi.add(s);
+			corsiN.add(s.getNome());
 		}
-		return corsi;
+		return corsiN;
 	}
 	public Studente trovaStudente(String matricola){
 		StudenteDAO dao =new StudenteDAO();
@@ -25,4 +28,17 @@ public class Model {
 		
 		return s;
 	}
+	public List<Studente> getStudentiCorso(String nomeCorso) {
+		Corso corso=null;
+		CorsoDAO dao= new CorsoDAO();
+		
+		for(Corso c : corsi){
+			if(c.getNome().compareTo(nomeCorso)==0){
+				corso=c;
+				break;
+			}
+		}
+		return dao.getStudentiIscrittiAlCorso(corso);
+	}
 }
+
