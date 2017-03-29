@@ -37,7 +37,6 @@ public class CorsoDAO {
 			}
 
 			return corsi;
-
 		} catch (SQLException e) {
 			// e.printStackTrace();
 			throw new RuntimeException("Errore Db");
@@ -78,7 +77,7 @@ public class CorsoDAO {
 				Studente s = new Studente(res.getInt("matricola"), res.getString("nome"), res.getString("cognome"), res.getString("CDS"));
 				studenti.add(s);
 			}
-			//conn.close();
+			conn.close();
 			return studenti;
 		} catch (SQLException e) {
 			// e.printStackTrace();

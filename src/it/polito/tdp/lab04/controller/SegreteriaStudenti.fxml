@@ -23,7 +23,7 @@
             <HBox spacing="15.0">
                <children>
                   <Label text="Corso :" />
-                  <ComboBox fx:id="cbxCorso" onAction="#docbxCorso" prefHeight="25.0" prefWidth="144.0" promptText="Corsi" />
+                  <ComboBox fx:id="cbxCorso" prefHeight="25.0" prefWidth="144.0" promptText="Corsi" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />

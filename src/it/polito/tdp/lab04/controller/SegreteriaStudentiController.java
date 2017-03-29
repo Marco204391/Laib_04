@@ -65,7 +65,14 @@ public class SegreteriaStudentiController {
 
     @FXML
     void doCercaIscrittiCorso(ActionEvent event) {
-
+    	String nomeCorso=cbxCorso.getValue();
+    	if(nomeCorso.length()>2){
+    	for(Studente s: model.getStudentiCorso(nomeCorso)){
+    		txtResult.appendText(+s.getMatricola()+"      "+s.getNome()+"      "+s.getCognome()+"\n");
+    	}
+    	}else{
+    		txtResult.setText("Corso selezionato non valido"+"\n");
+    	}
     }
 
     @FXML
@@ -97,13 +104,6 @@ public class SegreteriaStudentiController {
     		txtCognome.setText(s.getCognome());
     	}
     		
-    }
-    @FXML
-    void docbxCorso(ActionEvent event) {
-    	String nomeCorso=cbxCorso.getValue();
-    	for(Studente s: model.getStudentiCorso(nomeCorso)){
-    		txtResult.appendText(s.toString()+"\n");
-    	}
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
