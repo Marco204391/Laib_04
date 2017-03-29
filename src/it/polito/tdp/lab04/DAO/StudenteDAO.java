@@ -13,7 +13,7 @@ public class StudenteDAO {
 public Studente find (String matricola){
 		
 		final String sql=
-			"SELECT matricola,nome,cognome "+
+			"SELECT matricola,nome,cognome, CDS "+
 			"FROM studente "+
 			"WHERE matricola=?";
 		
@@ -27,7 +27,7 @@ public Studente find (String matricola){
 			ResultSet res= st.executeQuery();
 			if(res.next()){
 				
-				Studente s = new Studente(res.getInt("matricola"), res.getString("nome"), res.getString("cognome"));
+				Studente s = new Studente(res.getInt("matricola"), res.getString("nome"), res.getString("cognome"), res.getString("CDS"));
 				result= s;
 				
 			} else{

@@ -5,12 +5,29 @@ public class Studente {
 	private int matricola;
 	private String nome;
 	private String cognome;
+	private String CDS;
 	
-	public Studente(int matricola, String nome, String cognome) {
+	public Studente(int matricola, String nome, String cognome, String CDS) {
 		this.matricola = matricola;
 		this.nome = nome;
 		this.cognome = cognome;
+		this.CDS=CDS;
 	}
+	
+	/**
+	 * @return the cDS
+	 */
+	public String getCDS() {
+		return CDS;
+	}
+
+	/**
+	 * @param cDS the cDS to set
+	 */
+	public void setCDS(String cDS) {
+		CDS = cDS;
+	}
+
 	/**
 	 * @return the matricola
 	 */
@@ -90,7 +107,7 @@ public class Studente {
 	 */
 	@Override
 	public String toString() {
-		return "Studente [matricola=" + matricola + ", nome=" + nome + ", cognome=" + cognome + "]";
+		return "Studente [matricola=" + matricola + ", nome=" + nome + ", cognome=" + cognome + ", CDS=" + CDS + "]";
 	}
 	
 	
