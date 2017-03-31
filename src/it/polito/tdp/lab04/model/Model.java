@@ -40,5 +40,19 @@ public class Model {
 		}
 		return dao.getStudentiIscrittiAlCorso(corso);
 	}
+	
+	public List<Corso> getCorsiDiStudente(String matricola) {
+		List<Corso> corsiDiStu = new LinkedList<Corso>();
+		CorsoDAO dao= new CorsoDAO();
+		Corso c=null;
+		if(dao.corsiPerStudente(matricola)!=null){
+			for(String codC : dao.corsiPerStudente(matricola)){
+				c=dao.getCorso(codC);
+				corsiDiStu.add(c);
+			}
+			return corsiDiStu;
+		}
+		return null;
+	}
 }
 

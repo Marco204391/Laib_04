@@ -1,7 +1,6 @@
 package it.polito.tdp.lab04.DAO;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -33,13 +32,11 @@ public Studente find (String matricola){
 			} else{
 				result=null;
 			}
-			conn.close();
+			//conn.close();
 			return result;
 		} catch (SQLException e) {
 			e.printStackTrace();
 			return null;
 		}
 }
-
-
 }

@@ -4,11 +4,11 @@
 
 package it.polito.tdp.lab04.controller;
 
-import java.awt.List;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 import it.polito.tdp.lab04.DAO.CorsoDAO;
+import it.polito.tdp.lab04.model.Corso;
 import it.polito.tdp.lab04.model.Model;
 import it.polito.tdp.lab04.model.Studente;
 import javafx.event.ActionEvent;
@@ -60,7 +60,21 @@ public class SegreteriaStudentiController {
 
     @FXML
     void doCercaCorsi(ActionEvent event) {
-
+    	String matricola = txtMatricola.getText();
+    	if(matricola.length()<6){
+    		txtResult.appendText("Matricola non valida\n");
+    		return;
+    	}
+    	Studente s= model.trovaStudente(matricola);
+    	
+    	if(s==null){
+    		txtResult.appendText("Matricola "+matricola+" non trovata \n");
+    	}
+    	else{
+    		for(Corso c : model.getCorsiDiStudente(matricola)){
+    			txtResult.appendText(c.getCondins()+" "+c.getCrediti()+" "+c.getNome()+" "+c.getPd()+"\n");
+    		}
+    	}
     }
 
     @FXML
