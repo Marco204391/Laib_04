@@ -54,5 +54,25 @@ public class Model {
 		}
 		return null;
 	}
+
+	public boolean controlStudenteiscritto(String matricola, String nomeCorso) {
+		CorsoDAO dao= new CorsoDAO();
+		List<Corso> corsiDiStu = new LinkedList<Corso>();
+		Corso c=null;
+		if(dao.corsiPerStudente(matricola)!=null){
+			for(String codC : dao.corsiPerStudente(matricola)){
+				c=dao.getCorso(codC);
+				corsiDiStu.add(c);
+	
+			}
+			for(Corso cc : corsiDiStu){
+				if(cc.getNome().compareTo(nomeCorso)==0){
+					return true;
+				}			
+			}
+		}
+		return false;
+	}
+	
 }
 

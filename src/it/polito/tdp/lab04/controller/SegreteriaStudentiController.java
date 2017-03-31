@@ -112,12 +112,25 @@ public class SegreteriaStudentiController {
     	if(s==null){
     		txtResult.appendText("Matricola "+matricola+" non trovata \n");
     	}else{
+    		if(cbxCorso.getValue().equals("")){
+    	
     		txtResult.appendText("Matricola "+matricola+" trovata \n");
     		
     		txtNome.setText(s.getNome());
-    		txtCognome.setText(s.getCognome());
+    		txtCognome.setText(s.getCognome());}
+    		else{
+    			String nomeCorso= cbxCorso.getValue();
+    			if(model.controlStudenteiscritto(matricola, nomeCorso)){
+    				txtResult.setText("Studente già iscritto al corso selezionato"+"\n");
+    				txtNome.setText(s.getNome());
+    	    		txtCognome.setText(s.getCognome());}
+    			else{
+    				txtResult.setText("Studente non iscritto al corso selezionato"+"\n");
+    				txtNome.setText(s.getNome());
+    	    		txtCognome.setText(s.getCognome());
+    			}
+    		}
     	}
-    		
     }
 
     @FXML // This method is called by the FXMLLoader when initialization is complete
