@@ -7,7 +7,6 @@ package it.polito.tdp.lab04.controller;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import it.polito.tdp.lab04.DAO.CorsoDAO;
 import it.polito.tdp.lab04.model.Corso;
 import it.polito.tdp.lab04.model.Model;
 import it.polito.tdp.lab04.model.Studente;
@@ -102,7 +101,6 @@ public class SegreteriaStudentiController {
     @FXML
     void doV(ActionEvent event) {
     	String matricola = txtMatricola.getText();
-    	
     	if(matricola.length()<6){
     		txtResult.appendText("Matricola non valida\n");
     		return;
@@ -111,13 +109,11 @@ public class SegreteriaStudentiController {
     	
     	if(s==null){
     		txtResult.appendText("Matricola "+matricola+" non trovata \n");
-    	}else{
+    	}else {
     		if(cbxCorso.getValue().equals("")){
-    	
-    		txtResult.appendText("Matricola "+matricola+" trovata \n");
-    		
-    		txtNome.setText(s.getNome());
-    		txtCognome.setText(s.getCognome());}
+	    		txtResult.appendText("Matricola "+matricola+" trovata \n");
+	    		txtNome.setText(s.getNome());
+	    		txtCognome.setText(s.getCognome());}
     		else{
     			String nomeCorso= cbxCorso.getValue();
     			if(model.controlStudenteiscritto(matricola, nomeCorso)){
@@ -129,7 +125,7 @@ public class SegreteriaStudentiController {
     				txtNome.setText(s.getNome());
     	    		txtCognome.setText(s.getCognome());
     			}
-    		}
+    		}	
     	}
     }
 
